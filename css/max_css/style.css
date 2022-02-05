@@ -750,7 +750,7 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
 }
-@media (max-width: 1200px) {
+@media (max-width: 1680px) {
   .menu .login {
     display: none;
   }
