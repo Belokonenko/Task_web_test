@@ -357,22 +357,17 @@ html {
   font-family: "Roboto", sans-serif;
   line-height: 1;
 }
-@media (max-width: 1680px) {
-  html {
-    font-size: 12px;
-  }
-}
-@media (max-width: 1360px) {
-  html {
-    font-size: 8px;
-  }
-}
 
 body {
   height: 100%;
   width: 100%;
 }
 
+:root {
+  font-size: 1vw;
+}
+
+/* stylelint-disable */
 .btn-menu {
   position: fixed;
   top: 5.9em;
@@ -1007,14 +1002,13 @@ body {
     display: none;
   }
 }
-@media (max-width: 1024px) and (max-width: 768px) {
+@media (max-width: 768px) {
   .menu {
     grid-column: 1/2;
     grid-row: 2/3;
     z-index: 100;
   }
 }
-
 .options {
   display: -webkit-box;
   display: -ms-flexbox;
