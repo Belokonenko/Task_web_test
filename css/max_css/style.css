@@ -571,55 +571,46 @@ body {
   color: #7d8994;
   margin: 0 1px;
 }
+.calendar__body .line {
+  background-color: rgba(196, 196, 196, 0.59);
+  border-radius: 2em;
+}
 .calendar__body--dates {
   display: grid;
-  gap: 3px;
   grid-template-columns: repeat(7, 1fr);
   justify-items: center;
   text-align: center;
+  /* 1 */
+  /* 4 */
+}
+.calendar__body--dates li {
+  line-height: 1;
+  width: 2.5em;
+  height: 2.5em;
+  font-weight: bold;
+  background-color: transparent;
 }
 .calendar__body--dates li {
   position: relative;
-  width: 1.5rem;
-  height: 1.5rem;
-  display: grid;
-  place-items: center;
-  font-weight: bold;
+}
+.calendar__body--dates li span {
+  margin: 0;
+  position: absolute;
+  /* 2 */
+  top: 50%;
+  /* 3 */
+  -webkit-transform: translate(-53%, -44%);
+  -ms-transform: translate(-53%, -44%);
+  transform: translate(-53%, -44%);
 }
 .calendar__body--dates li.prev,
 .calendar__body--dates li.next {
   color: #ccc;
 }
-.calendar__body--dates li.active {
-  background: #de6e46;
+.calendar__body--dates .active {
+  background-color: #3e63f6;
+  border-radius: 50%;
   color: #ffffff;
-  border-radius: 50%;
-}
-.calendar__body--dates li.circle {
-  border: 2px solid;
-  border-radius: 50%;
-}
-.calendar__body--dates li.circle span {
-  position: absolute;
-  top: -0.75rem;
-  right: -0.5rem;
-  width: 1.75rem;
-  height: 1.75rem;
-  font-size: 1.2rem;
-  color: #ffffff;
-  border-radius: 50%;
-}
-.calendar__body--dates .circle.orange {
-  border-color: #de6e46;
-}
-.calendar__body--dates .circle.orange span {
-  background: #de6e46;
-}
-.calendar__body--dates .circle.purple {
-  border-color: #ae5989;
-}
-.calendar__body--dates .circle.purple span {
-  background: #ae5989;
 }
 
 .login {
@@ -918,7 +909,7 @@ body {
 .users__item-add {
   line-height: 1;
 }
-.users__item-add-txt {
+.users__item- {
   display: inline-block;
   position: relative;
   font-size: 1rem;
@@ -927,7 +918,7 @@ body {
   text-transform: capitalize;
   color: rgba(51, 61, 72, 0.4);
 }
-.users__item-add-txt::before {
+.users__item-::before {
   content: "";
   position: absolute;
   width: 1.5em;
@@ -1313,7 +1304,7 @@ body {
   align-items: center;
 }
 .modal__input {
-  height: 39px;
+  height: 4em;
   background: #f0f2f5;
   border: 1px solid #f0f2f5;
   border-radius: 7px;
@@ -1321,10 +1312,28 @@ body {
   background-clip: padding-box;
 }
 .modal__txt {
-  width: 300px;
+  width: 65%;
 }
 .modal__note {
-  height: 85px;
+  height: 10rem;
+}
+.modal__wrap-input-time {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  width: 65%;
+}
+.modal__wrap-date {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: start;
+  width: 65%;
 }
 .modal__form-title-txt {
   position: relative;
@@ -1531,6 +1540,16 @@ body {
   -webkit-box-shadow: 0 0;
   box-shadow: 0 0;
 }
+.tasks__link-modal-window {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-decoration: none;
+}
+.tasks__link-modal-window p {
+  margin: auto;
+  line-height: 1;
+  color: #000000;
+}
 .tasks__month-block {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1553,22 +1572,23 @@ body {
   border-color: transparent;
   background-color: transparent;
 }
-.tasks__item-add-txt {
+.tasks__item {
   display: inline-block;
   position: relative;
   font-size: 1rem;
   line-height: 1.4;
   margin-left: 3em;
+  height: 4em;
 }
-.tasks__item-add-txt::before {
+.tasks__item::before {
   content: "";
   position: absolute;
   width: 2.5em;
   height: 2.5em;
   left: -3em;
-  top: -0.7em;
+  top: -0.5em;
   background-image: url("../img/add-round-button-svgrepo-com.svg");
-  background-position: center center;
+  background-position: 0 0;
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -1713,6 +1733,26 @@ body {
   }
 }
 
+::-webkit-scrollbar {
+  width: 0.9rem;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.2) inset;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2) inset;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #DCE0E9;
+  border: 3px solid transparent;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a9a9a9;
+}
+
 .task-manager {
   display: grid;
   grid-template-columns: 5rem -webkit-max-content 1fr;
@@ -1720,22 +1760,6 @@ body {
   grid-template-rows: 5rem auto;
   height: 100vh;
   width: 100vw;
-}
-.task-manager ::-webkit-scrollbar {
-  width: 0.9rem;
-}
-.task-manager ::-webkit-scrollbar-track {
-  background: transparent;
-  -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.2) inset;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2) inset;
-}
-.task-manager ::-webkit-scrollbar-thumb {
-  background: #DCE0E9;
-  border: 3px solid transparent;
-  border-radius: 5px;
-}
-.task-manager ::-webkit-scrollbar-thumb:hover {
-  background: #a9a9a9;
 }
 @media (max-width: 768px) {
   .task-manager {
