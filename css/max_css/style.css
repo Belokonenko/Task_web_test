@@ -721,6 +721,14 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
 }
+@media (max-width: 576px) {
+  .login__wrap-btns {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
 
 .users__fieldset {
   border: 0 none;
@@ -1162,6 +1170,14 @@ body {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
+}
+@media (max-width: 576px) {
+  .login__wrap-btns {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
 }
 
 .modal {
